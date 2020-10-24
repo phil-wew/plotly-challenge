@@ -20,33 +20,24 @@ function buildPage(subject) {
         console.log(subject);
 
         var metadata = data.metadata;
-
+        //filter data
         var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
+        var result = resultArray[0];
 
-        // Filter data.samples based on subject
-        // The array that you get back you are interested in [0]
-
-        // Use dot notation to get at .otu_ids, .otu_labels, .otu_sample_values
-        // Use slice for the horizontal bar chart
-
-        // Plotly charts
-        // Horizonatal bar chart- orientation: "h"
-
-
-        // Panel
-        // Filter data.metadata based on subject
-        // The array that you get back you are interested in [0]
-
+        // d3 select id from sample-metadata
         var panel = d3.select("#sample-metadata");
 
         panel.html("");
 
+
         Object.entries(meta).forEach(([key, value]) => {
-            // One idea is to append header elements (h5 or h6) of the key: value
+            // append h6 with value
+            panel.append("h6").text(`key.toUppderCase()}: ${value}`);
+
         })
 
 
-    })
+    });
 }
 
 
